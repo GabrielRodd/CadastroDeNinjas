@@ -9,11 +9,11 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id; //Para funcionar de identificador na tabela
-    String nome;
-    int idade;
-    String email;
-    String cla;
+    private Long id; //Para funcionar de identificador na tabela
+    private String nome;
+    private int idade;
+    private String email;
+    private String cla;
 
     //NoArgs Constructor
     public NinjaModel() {
