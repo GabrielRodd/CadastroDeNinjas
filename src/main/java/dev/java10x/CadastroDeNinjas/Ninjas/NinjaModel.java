@@ -2,10 +2,15 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-// Entity transforma uma classe em uma entidade do DB
-@Entity
+@Entity // Entity transforma uma classe em uma entidade do DB
 @Table(name = "tb_cadastro") //Nome da tabela
+@NoArgsConstructor //Anotation importada do lombok, cria um noargsconstructor invisivel
+@AllArgsConstructor //Anotation importada do lombok, cria um AllArgsConstructor invisivel, que atualiza sozinho
+@Data //Anotation importada do lombok, cria TODOS os GETTERS e os SETTERS invisiveis
 public class NinjaModel {
 
     @Id
@@ -24,50 +29,5 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id") //Foreing Key ou Chave Estrangeira
     private MissaoModel missao;
-
-    //NoArgs Constructor
-    public NinjaModel() {
-    }
-
-    //AllArgs Constructor
-    public NinjaModel(String nome, int idade, String email, String cla) {
-        this.nome = nome;
-        this.idade = idade;
-        this.email = email;
-        this.cla = cla;
-    }
-
-    //Getters e Setters
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCla() {
-        return cla;
-    }
-
-    public void setCla(String cla) {
-        this.cla = cla;
-    }
 
 }
