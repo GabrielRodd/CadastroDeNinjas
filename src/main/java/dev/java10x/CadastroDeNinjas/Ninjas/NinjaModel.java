@@ -21,6 +21,7 @@ public class NinjaModel {
 
     private int idade;
 
+    @Column(unique = true) //Proibe dados repetidos na coluna email
     private String email;
 
     private String cla;
