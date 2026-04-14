@@ -17,10 +17,13 @@ public class MissaoModel {
 
     @Id //Identifica o proximo atributo como id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Id automatico na sequencia
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
+    @Column(name = "dificuldade")
     private String dificuldade;
 
     //@OneToMany define que uma missao pode ter VARIOS ninjas
