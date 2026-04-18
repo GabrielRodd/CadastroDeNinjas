@@ -2,9 +2,20 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/ninjas")
 public class NinjaController {
+
+    //Criar uma dependencia/atributo do NinjaService na classe NinjaController
+    //Dessa forma o NinjaController ganha acesso ao NinjaService
+    //Esta injetando como dependencia o NinjaService
+    private NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @GetMapping("/boasvindas")
     public String boasVindas() {
@@ -19,8 +30,8 @@ public class NinjaController {
 
     //Mostrar todos os Ninjas (READ)
     @GetMapping("/mostrar")
-    public String mostrarTodosNinjas() {
-        return "Mostrando Todos Ninjas";
+    public List<NinjaModel> mostrarTodosNinjas() {
+        return ninjaService.mostrarTodosNinjas(); //Aplica o metodo do NinjaService injetado
     }
 
     //Procurar Ninja por ID (READ)
