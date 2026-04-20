@@ -3,6 +3,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service //Anotation que define a classe NinjaService como camada de servico
 public class NinjaService {
@@ -22,6 +23,11 @@ public class NinjaService {
         return ninjaRepository.findAll();
     }
 
+    //Mostrar ninja por ID
+    public NinjaModel mostrarNinjasPorId(Long id) {
+        Optional<NinjaModel> ninjaID= ninjaRepository.findById(id);
+        return ninjaID.orElse(null);
+    }
 
 
 
