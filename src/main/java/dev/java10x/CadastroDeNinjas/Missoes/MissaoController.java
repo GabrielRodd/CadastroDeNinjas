@@ -35,15 +35,15 @@ public class MissaoController {
         return missaoService.criarMissao(missao);
     }
 
+    //DELETE -- Deletar Missao
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissao(@PathVariable Long id) {
+        missaoService.deletarMissao(id);
+    }
+
     //PUT -- Editar Missao
     @PutMapping("/editar")
     public String editarMissao() {
         return "Missao Editada.";
-    }
-
-    //DELETE -- Deletar Missao
-    @DeleteMapping("/deletar")
-    public String deletarMissao() {
-        return "Missao Deletada.";
     }
 }
