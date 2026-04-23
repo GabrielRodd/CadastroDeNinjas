@@ -23,6 +23,12 @@ public class MissaoController {
         return missaoService.mostrarMissoes();
     }
 
+    //GET -- Mostrar Missoes por ID
+    @GetMapping("mostrar/{id}")
+    public MissaoModel mostrarPorID(@PathVariable Long id) {
+        return missaoService.mostrarPorID(id);
+    }
+
     //POST -- Criar Missao
     @PostMapping("/criar")
     public String criarMissao() {
