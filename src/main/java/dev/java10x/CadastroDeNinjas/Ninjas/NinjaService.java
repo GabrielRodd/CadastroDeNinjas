@@ -1,7 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +32,11 @@ public class NinjaService {
     //Adicionar Ninja (CREATE)
     public NinjaModel criarNinja(NinjaModel novoNinja) {
         return ninjaRepository.save(novoNinja);
+    }
+
+    //Deletar Ninja (DELETE) - Tem que ser um metodo void, pois nao vai ser enviado/retornado nada
+    public void deletarNinjaPorId(Long id) {
+        ninjaRepository.deleteById(id);
     }
 
 
