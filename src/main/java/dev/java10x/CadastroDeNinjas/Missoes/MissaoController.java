@@ -41,9 +41,9 @@ public class MissaoController {
         missaoService.deletarMissao(id);
     }
 
-    //PUT -- Editar Missao
-    @PutMapping("/editar")
-    public String editarMissao() {
-        return "Missao Editada.";
+    //PUT -- Atualizar Missao
+    @PutMapping("/atualizar/{id}")
+    public MissaoModel atualizarMissao(@PathVariable Long id, @RequestBody MissaoModel missaoAtualizada) {
+        return missaoService.atualizaMissao(id, missaoAtualizada);
     }
 }
