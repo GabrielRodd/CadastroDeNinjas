@@ -12,10 +12,12 @@ public class NinjaService {
     //Dessa forma o NinjaService ganha acesso ao NinjaRepository
     //Esta injetando como dependencia o NinjaRepository
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
     //Iniciar o construtor da classe
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     //Mostrar todos os Ninjas
@@ -30,8 +32,10 @@ public class NinjaService {
     }
 
     //Adicionar Ninja (CREATE)
-    public NinjaModel criarNinja(NinjaModel novoNinja) {
-        return ninjaRepository.save(novoNinja);
+    public NinjaDTO criarNinja(NinjaDTO novoNinja) {
+        NinjaModel ninja = ninjaMapper.map(novoNinja);
+        ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
     //Deletar Ninja (DELETE) - Tem que ser um metodo void, pois nao vai ser enviado/retornado nada
