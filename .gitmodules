@@ -1,0 +1,3 @@
+[submodule "docs"]
+	path = docs
+	url = https://github.com/GabrielRodd/projeto-estudos-notas.git
