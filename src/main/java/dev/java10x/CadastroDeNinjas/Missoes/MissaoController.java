@@ -19,13 +19,13 @@ public class MissaoController {
 
     //GET -- Mostrar missoes
     @GetMapping("mostrar")
-    public List<MissaoModel> mostrarMissoes() {
+    public List<MissaoDTO> mostrarMissoes() {
         return missaoService.mostrarMissoes();
     }
 
     //GET -- Mostrar Missoes por ID
     @GetMapping("mostrar/{id}")
-    public MissaoModel mostrarPorID(@PathVariable Long id) {
+    public MissaoDTO mostrarPorID(@PathVariable Long id) {
         return missaoService.mostrarPorID(id);
     }
 
@@ -43,7 +43,7 @@ public class MissaoController {
 
     //PUT -- Atualizar Missao
     @PutMapping("/atualizar/{id}")
-    public MissaoModel atualizarMissao(@PathVariable Long id, @RequestBody MissaoModel missaoAtualizada) {
+    public MissaoDTO atualizarMissao(@PathVariable Long id, @RequestBody MissaoDTO missaoAtualizada) {
         return missaoService.atualizaMissao(id, missaoAtualizada);
     }
 }
