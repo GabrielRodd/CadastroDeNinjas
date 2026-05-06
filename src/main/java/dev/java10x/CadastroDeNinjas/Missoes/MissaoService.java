@@ -13,9 +13,13 @@ public class MissaoService {
     //Injetando a camada de repository na camada de service
     private MissaoRepository missaoRepository;
 
+    //Injetando a camada de mapper na camada de service
+    private MissaoMapper missaoMapper;
+
     //Criando o construtor da classe
-    public MissaoService(MissaoRepository missaoRepository) {
+    public MissaoService(MissaoRepository missaoRepository, MissaoMapper missaoMapper) {
         this.missaoRepository = missaoRepository;
+        this.missaoMapper = missaoMapper;
     }
 
     //GET -- Mostrar missoes
@@ -30,8 +34,10 @@ public class MissaoService {
     }
 
     //POST -- Criar Missao
-    public MissaoModel criarMissao(MissaoModel missao) {
-        return missaoRepository.save(missao);
+    public MissaoDTO criarMissao(MissaoDTO missaoDTO) {
+        MissaoModel missaoModel = missaoMapper.map(missaoDTO);
+        missaoRepository.save(missaoModel);
+        return missaoMapper.map(missaoModel);
     }
 
     //DELETE -- Deletar Missao
