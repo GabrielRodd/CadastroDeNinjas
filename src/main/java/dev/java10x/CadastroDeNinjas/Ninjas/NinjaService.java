@@ -2,7 +2,6 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -44,8 +43,10 @@ public class NinjaService {
     }
 
     //Deletar Ninja (DELETE) - Tem que ser um metodo void, pois nao vai ser enviado/retornado nada
-    public void deletarNinjaPorId(Long id) {
+    public NinjaDTO deletarNinjaPorId(Long id) {
+        Optional<NinjaModel> ninjaDeletadoModel = ninjaRepository.findById(id);
         ninjaRepository.deleteById(id);
+        return ninjaDeletadoModel.map(ninjaMapper::map).orElse(null);
     }
 
     //Atualizar Ninja
