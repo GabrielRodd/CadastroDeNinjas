@@ -49,7 +49,7 @@ public class NinjaController {
                     .body(ninjaBuscado);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("Ninja de id " + ninjaBuscado.getId() + " nao encontrado");
+                    .body("Ninja de id " + id + " nao encontrado");
         }
     }
 
