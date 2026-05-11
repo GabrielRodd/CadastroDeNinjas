@@ -45,8 +45,10 @@ public class MissaoService {
     }
 
     //DELETE -- Deletar Missao
-    public void deletarMissao(Long id) {
+    public MissaoDTO deletarMissao(Long id) {
         missaoRepository.deleteById(id);
+        Optional<MissaoModel> missaoDeletar = missaoRepository.findById(id);
+        return missaoDeletar.map(missaoMapper::map).orElse(null);
     }
 
     //PUT - Atualizar Missao
