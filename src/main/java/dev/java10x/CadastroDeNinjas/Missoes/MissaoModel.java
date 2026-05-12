@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor //Anotation importada do lombok, cria um noargsconstructor invisivel
 @AllArgsConstructor //Anotation importada do lombok, cria um AllArgsConstructor invisivel, que atualiza sozinho
 @Data //Anotation importada do lombok, cria TODOS os GETTERS e os SETTERS invisiveis
+@ToString
 public class MissaoModel {
 
     @Id //Identifica o proximo atributo como id
