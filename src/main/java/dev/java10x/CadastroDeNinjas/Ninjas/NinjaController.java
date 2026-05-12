@@ -13,7 +13,7 @@ public class NinjaController {
     //Criar uma dependencia/atributo do NinjaService na classe NinjaController
     //Dessa forma o NinjaController ganha acesso ao NinjaService
     //Esta injetando como dependencia o NinjaService
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;

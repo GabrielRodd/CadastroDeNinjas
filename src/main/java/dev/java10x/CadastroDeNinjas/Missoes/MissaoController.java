@@ -11,7 +11,7 @@ import java.util.List;
 public class MissaoController {
 
     //Injetando a camada de service na camada de controller
-    private MissaoService missaoService;
+    private final MissaoService missaoService;
 
     //Criando o construtor da classe
     public MissaoController(MissaoService missaoService) {

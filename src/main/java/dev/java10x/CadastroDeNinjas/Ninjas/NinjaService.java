@@ -12,8 +12,8 @@ public class NinjaService {
     //Criar uma dependencia/atributo do NinjaRepository na classe NinjaService
     //Dessa forma o NinjaService ganha acesso ao NinjaRepository
     //Esta injetando como dependencia o NinjaRepository
-    private NinjaRepository ninjaRepository;
-    private NinjaMapper ninjaMapper;
+    private final NinjaRepository ninjaRepository;
+    private final NinjaMapper ninjaMapper;
 
     //Iniciar o construtor da classe
     public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {

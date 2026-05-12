@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 public class MissaoService {
 
     //Injetando a camada de repository na camada de service
-    private MissaoRepository missaoRepository;
+    private final MissaoRepository missaoRepository;
 
     //Injetando a camada de mapper na camada de service
-    private MissaoMapper missaoMapper;
+    private final MissaoMapper missaoMapper;
 
     //Criando o construtor da classe
     public MissaoService(MissaoRepository missaoRepository, MissaoMapper missaoMapper) {
